@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "IdeaValidator",
+      "hasCanvas": false,
+      "bodyTextLen": 2216,
+      "bodyTextHash": "06e31fc1f782d68cee2438d03b2f4e80e0c6ac19be5a13aea0b6e6d3f91134e7",
+      "bodyTextPrefix": "IdeaValidator How scoring works Sample report Sign in Create acc",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "IdeaValidator",
+      "hasCanvas": false,
+      "bodyTextLen": 2169,
+      "bodyTextHash": "308f68dc4dd9920aa5b11d09f78e56fb514290715d908f5236393aa6dfc4380c",
+      "bodyTextPrefix": "IdeaValidator Sign in DECISION SUPPORT FOR FOUNDERS Turn your st",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

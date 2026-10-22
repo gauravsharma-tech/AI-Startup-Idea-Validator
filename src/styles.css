@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Typography */
+  --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Light mode – clean editorial */
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0F172A;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #0F172A;
+  --color-primary: #7C3AED;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F1F5F9;
+  --color-secondary-foreground: #0F172A;
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+  --color-accent: #EDE9FE;
+  --color-accent-foreground: #5B21B6;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FEF2F2;
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #7C3AED;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  /* Chart colors */
+  --color-chart-1: #8B5CF6;
+  --color-chart-2: #34D399;
+  --color-chart-3: #FBBF24;
+  --color-chart-4: #60A5FA;
+  --color-chart-5: #FB7185;
+
+  /* Sidebar (light) */
+  --color-sidebar: #F1F5F9;
+  --color-sidebar-foreground: #0F172A;
+  --color-sidebar-border: #E2E8F0;
+  --color-sidebar-accent: #EDE9FE;
+  --color-sidebar-accent-foreground: #5B21B6;
+
+  /* Shapes */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius: 12px;
+
+  /* Shadows */
+  --shadow-border:
+    0px 0px 0px 1px rgba(15, 23, 42, 0.07),
+    0px 1px 3px -1px rgba(15, 23, 42, 0.06),
+    0px 2px 6px 0px rgba(15, 23, 42, 0.04);
+
+  --shadow-card:
+    0px 0px 0px 1px rgba(15, 23, 42, 0.06),
+    0px 4px 16px -4px rgba(15, 23, 42, 0.10),
+    0px 1px 3px 0px rgba(15, 23, 42, 0.05);
+
+  --shadow-glow:
+    0 0 0 1px rgba(139, 92, 246, 0.18),
+    0 4px 24px -4px rgba(139, 92, 246, 0.22);
+}
+
+/* ─────────────── DARK THEME ─────────────── */
+.dark {
+  --color-background: #0B1020;
+  --color-foreground: #F1F5F9;
+  --color-card: #141B2D;
+  --color-card-foreground: #F1F5F9;
+  --color-popover: #1B2540;
+  --color-popover-foreground: #F1F5F9;
+  --color-primary: #8B5CF6;
+  --color-primary-foreground: #0B1020;
+  --color-secondary: #1B2540;
+  --color-secondary-foreground: #F1F5F9;
+  --color-muted: #1B2540;
+  --color-muted-foreground: #94A3B8;
+  --color-accent: #1B2540;
+  --color-accent-foreground: #C4B5FD;
+  --color-destructive: #FB7185;
+  --color-destructive-foreground: #1B0A0A;
+  --color-border: #283349;
+  --color-input: rgba(255, 255, 255, 0.08);
+  --color-ring: #8B5CF6;
+  --color-success: #34D399;
+  --color-warning: #FBBF24;
+  --color-danger: #FB7185;
+
+  --color-sidebar: #0D1324;
+  --color-sidebar-foreground: #F1F5F9;
+  --color-sidebar-border: rgba(255, 255, 255, 0.06);
+  --color-sidebar-accent: rgba(139, 92, 246, 0.12);
+  --color-sidebar-accent-foreground: #C4B5FD;
+
+  --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.07);
+  --shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 4px 20px -4px rgba(0, 0, 0, 0.4);
+  --shadow-glow:
+    0 0 0 1px rgba(139, 92, 246, 0.25),
+    0 4px 24px -4px rgba(139, 92, 246, 0.30);
+}
+
+/* ─────────────── BASE LAYER ─────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Focus-visible ring */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ─────────────── COMPONENT HELPERS ─────────────── */
+@layer components {
+  /* Bento cards */
+  .bento-card {
+    @apply rounded-[var(--radius-lg)] bg-card border border-border/60 shadow-[var(--shadow-card)] p-5;
+  }
+
+  .bento-card-elevated {
+    background: var(--color-popover);
+    @apply rounded-[var(--radius-lg)] border border-border/60 shadow-[var(--shadow-card)] p-5;
+  }
+
+  /* Metric number style */
+  .metric-value {
+    @apply tabular-nums font-display text-3xl font-semibold tracking-tight;
+  }
+
+  .metric-label {
+    @apply text-xs font-medium uppercase tracking-wide text-muted-foreground;
+  }
+
+  /* Score ring color helpers */
+  .score-high   { color: var(--color-success); }
+  .score-mid    { color: var(--color-primary); }
+  .score-low    { color: var(--color-warning); }
+  .score-poor   { color: var(--color-danger); }
+
+  /* Subtle gradient overlay for hero areas */
+  .gradient-radial-primary {
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex h-9 items-center gap-2.5 rounded-lg px-3 text-sm font-medium transition-colors;
+  }
+
+  .nav-item-active {
+    @apply bg-[var(--color-sidebar-accent)] text-[var(--color-sidebar-accent-foreground)];
+  }
+
+  .nav-item-inactive {
+    @apply text-muted-foreground hover:text-foreground hover:bg-[var(--color-sidebar-accent)]/60;
+  }
+
+  /* Pill badge for dimensions */
+  .dim-pill {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
+
+/* ─────────────── ANIMATIONS ─────────────── */
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.35s ease both;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .stagger-1 { animation-delay: 60ms; }
+  .stagger-2 { animation-delay: 120ms; }
+  .stagger-3 { animation-delay: 180ms; }
+  .stagger-4 { animation-delay: 240ms; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─────────────── REDUCED MOTION ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

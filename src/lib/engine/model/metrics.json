@@ -1,0 +1,51 @@
+{
+  "accuracy": 0.684,
+  "precisionMacro": 0.7175,
+  "recallMacro": 0.6898,
+  "f1Macro": 0.7011,
+  "precisionWeighted": 0.6921,
+  "recallWeighted": 0.684,
+  "f1Weighted": 0.6857,
+  "adjacentAccuracy": 0.994,
+  "rulesAccuracy": 0.654,
+  "agreementWithRules": 0.811,
+  "adjacentAgreementWithRules": 1.0,
+  "confusionMatrix": [
+    [
+      126,
+      50,
+      3,
+      0
+    ],
+    [
+      29,
+      231,
+      60,
+      1
+    ],
+    [
+      1,
+      92,
+      202,
+      30
+    ],
+    [
+      0,
+      1,
+      49,
+      125
+    ]
+  ],
+  "classNames": [
+    "Needs Major Improvement",
+    "High Risk",
+    "Promising",
+    "Highly Promising"
+  ],
+  "nTrain": 3000,
+  "nTest": 1000,
+  "datasetId": "5f8fb837",
+  "classificationReport": "                         precision    recall  f1-score   support\n\nNeeds Major Improvement       0.81      0.70      0.75       179\n              High Risk       0.62      0.72      0.66       321\n              Promising       0.64      0.62      0.63       325\n       Highly Promising       0.80      0.71      0.76       175\n\n               accuracy                           0.68      1000\n              macro avg       0.72      0.69      0.70      1000\n           weighted avg       0.69      0.68      0.69      1000\n",
+  "datasetKind": "simulated",
+  "disclaimer": "Metrics reflect performance on held-out SIMULATED ideas whose labels come from a simulated quality score. They are not a claim of real-world startup prediction accuracy."
+}
